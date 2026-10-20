@@ -3,7 +3,7 @@
 #
 
 PRODUCT_SOONG_NAMESPACES += \
-    vendor/xiaomi/piano-miuicamera
+    vendor/xiaomi/piano-xiaomi-camera
 
 PRODUCT_PACKAGES += \
     MiuiCamera \
