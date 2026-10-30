@@ -1,7 +1,9 @@
 # Xiaomi camera for the Xiaomi Pad 8 Pro (piano)
 
-The stock HyperOS 4 camera app (MiuiCamera) and its libraries, from China
-`OS4.0.0.44.XPYCNXM`. Android 17.
+| | |
+| --- | --- |
+| Path | `vendor/xiaomi/piano-xiaomi-camera` |
+| Optional | yes |
+| From | HyperOS 4 China `OS4.0.0.44.XPYCNXM` |
 
-Goes in `vendor/xiaomi/piano-xiaomi-camera`. The device tree includes
-`miuicamera.mk`.
+Stock MiuiCamera and its libraries. The device tree includes `miuicamera.mk`.
