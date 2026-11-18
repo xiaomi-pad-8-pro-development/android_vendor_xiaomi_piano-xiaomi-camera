@@ -7,34 +7,13 @@ soong_namespace {
 
 // The APK is split in two parts to stay under GitHub's 100 MB file limit.
 genrule {
-    name: "MiuiCamera_stock_apk",
+    name: "MiuiCamera_apk",
     srcs: [
         "proprietary/product/priv-app/MiuiCamera/MiuiCamera.apk.part0",
         "proprietary/product/priv-app/MiuiCamera/MiuiCamera.apk.part1",
     ],
-    out: ["MiuiCamera_stock.apk"],
-    cmd: "cat $(in) > $(out)",
-}
-
-python_binary_host {
-    name: "replace_apk_icon",
-    main: "tools/replace_apk_icon.py",
-    srcs: ["tools/replace_apk_icon.py"],
-}
-
-// Swap the square launcher icon bitmaps for round ones (see the tool).
-genrule {
-    name: "MiuiCamera_apk",
-    srcs: [
-        ":MiuiCamera_stock_apk",
-        "icon/znu.webp",
-        "icon/Mc7.webp",
-    ],
-    tools: ["replace_apk_icon"],
     out: ["MiuiCamera.apk"],
-    cmd: "$(location replace_apk_icon) $(location :MiuiCamera_stock_apk) $(out) " +
-        "res/znu.webp=$(location icon/znu.webp) " +
-        "res/Mc7.webp=$(location icon/Mc7.webp)",
+    cmd: "cat $(in) > $(out)",
 }
 
 android_app_import {
@@ -127,4 +106,3 @@ prebuilt_etc {
     filename: "public.libraries-xiaomi.txt",
     system_ext_specific: true,
 }
-
